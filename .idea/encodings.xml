@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-cdc-e2e-tests" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-connector-debezium" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-connector-mongodb-cdc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-connector-mysql-cdc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-connector-oracle-cdc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-connector-postgres-cdc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-connector-test-util" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-format-changelog-json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-sql-connector-mongodb-cdc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-sql-connector-mysql-cdc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-sql-connector-oracle-cdc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-sql-connector-postgres-cdc" charset="UTF-8" />
+  </component>
+</project>

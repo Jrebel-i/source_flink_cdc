@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="flink-cdc-e2e-tests" />
+        <module name="flink-connector-debezium" />
+        <module name="flink-connector-mongodb-cdc" />
+        <module name="flink-connector-mysql-cdc" />
+        <module name="flink-connector-oracle-cdc" />
+        <module name="flink-connector-postgres-cdc" />
+        <module name="flink-connector-test-util" />
+        <module name="flink-format-changelog-json" />
+        <module name="flink-sql-connector-mongodb-cdc" />
+        <module name="flink-sql-connector-mysql-cdc" />
+        <module name="flink-sql-connector-oracle-cdc" />
+        <module name="flink-sql-connector-postgres-cdc" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="flink-cdc-connectors" target="1.8" />
+      <module name="flink-cdc-e2e-tests" target="1.8" />
+      <module name="flink-connector-debezium" target="1.8" />
+      <module name="flink-connector-mongodb-cdc" target="1.8" />
+      <module name="flink-connector-mysql-cdc" target="1.8" />
+      <module name="flink-connector-oracle-cdc" target="1.8" />
+      <module name="flink-connector-postgres-cdc" target="1.8" />
+      <module name="flink-connector-test-util" target="1.8" />
+      <module name="flink-format-changelog-json" target="1.8" />
+      <module name="flink-sql-connector-mongodb-cdc" target="1.8" />
+      <module name="flink-sql-connector-mysql-cdc" target="1.8" />
+      <module name="flink-sql-connector-oracle-cdc" target="1.8" />
+      <module name="flink-sql-connector-postgres-cdc" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
