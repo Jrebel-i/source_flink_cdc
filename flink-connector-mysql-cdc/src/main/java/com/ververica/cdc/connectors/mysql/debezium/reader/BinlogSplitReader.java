@@ -146,8 +146,8 @@ public class BinlogSplitReader implements DebeziumReader<SourceRecord, MySqlSpli
         final List<SourceRecord> sourceRecords = new ArrayList<>();
         if (currentTaskRunning) {
             List<DataChangeEvent> batch = queue.poll();
-            for (DataChangeEvent event : batch) {
-                if (shouldEmit(event.getRecord())) {
+            for (DataChangeEvent event : batch) { //事件下发条件：1. 新收到的event post 大于 maxwm 2. 当前 data值所属某个snapshot spilt & 偏移量大于 HWM,下发数据。
+                if (shouldEmit(event.getRecord())) {//增量阶段的Binlog读取是无界的，数据会全部下发到事件队列  通过shouldEmit()判断数据是否下发
                     sourceRecords.add(event.getRecord());
                 }
             }

@@ -133,14 +133,14 @@ public class MySqlSource<T>
         MySqlSourceConfig sourceConfig =
                 configFactory.createConfig(readerContext.getIndexOfSubtask());
         FutureCompletingBlockingQueue<RecordsWithSplitIds<SourceRecord>> elementsQueue =
-                new FutureCompletingBlockingQueue<>();
+                new FutureCompletingBlockingQueue<>();//数据存储队列
         final MySqlSourceReaderMetrics sourceReaderMetrics =
                 new MySqlSourceReaderMetrics(readerContext.metricGroup());
         sourceReaderMetrics.registerMetrics();
-        Supplier<MySqlSplitReader> splitReaderSupplier =
+        Supplier<MySqlSplitReader> splitReaderSupplier =//工厂类
                 () -> new MySqlSplitReader(sourceConfig, readerContext.getIndexOfSubtask());
         return new MySqlSourceReader<>(//MySqlSourceReader 启动后会向 MySqlSourceEnumerator 发送请求分片事件，从而收集分配的切片数据
-                elementsQueue,
+                elementsQueue,//MySqlSourceReader 通过 SingleThreadFetcherManager 创建Fetcher拉取分片数据，数据以 MySqlRecords 格式写入到 elementsQueue
                 splitReaderSupplier,
                 new MySqlRecordEmitter<>(
                         deserializationSchema,//SourceOperator 初始化完毕后，调用 emitNext 由 SourceReaderBase 从 elementsQueue 获取数据集合并下发给 MySqlRecordEmitter

@@ -91,13 +91,13 @@ public final class MySqlRecordEmitter<T>
             if (includeSchemaChanges) {
                 emitElement(element, output);
             }
-        } else if (isDataChangeRecord(element)) {
+        } else if (isDataChangeRecord(element)) {//数据的处理
             if (splitState.isBinlogSplitState()) {
                 BinlogOffset position = getBinlogPosition(element);
                 splitState.asBinlogSplitState().setStartingOffset(position);
             }
             reportMetrics(element);
-            emitElement(element, output);
+            emitElement(element, output);//将数据转换为RowData
         } else {
             // unknown element
             LOG.info("Meet unknown element {}, just skip.", element);
@@ -106,7 +106,7 @@ public final class MySqlRecordEmitter<T>
 
     private void emitElement(SourceRecord element, SourceOutput<T> output) throws Exception {
         outputCollector.output = output;
-        debeziumDeserializationSchema.deserialize(element, outputCollector);
+        debeziumDeserializationSchema.deserialize(element, outputCollector);//序列化
     }
 
     private void reportMetrics(SourceRecord element) {

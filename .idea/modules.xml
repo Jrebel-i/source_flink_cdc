@@ -4,17 +4,21 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/flink-cdc-connectors.iml" filepath="$PROJECT_DIR$/flink-cdc-connectors.iml" />
       <module fileurl="file://$PROJECT_DIR$/flink-cdc-e2e-tests/flink-cdc-e2e-tests.iml" filepath="$PROJECT_DIR$/flink-cdc-e2e-tests/flink-cdc-e2e-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-connectors/flink-connector-base/flink-connector-base.iml" filepath="$PROJECT_DIR$/flink-connectors/flink-connector-base/flink-connector-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/flink-connector-debezium/flink-connector-debezium.iml" filepath="$PROJECT_DIR$/flink-connector-debezium/flink-connector-debezium.iml" />
       <module fileurl="file://$PROJECT_DIR$/flink-connector-mongodb-cdc/flink-connector-mongodb-cdc.iml" filepath="$PROJECT_DIR$/flink-connector-mongodb-cdc/flink-connector-mongodb-cdc.iml" />
       <module fileurl="file://$PROJECT_DIR$/flink-connector-mysql-cdc/flink-connector-mysql-cdc.iml" filepath="$PROJECT_DIR$/flink-connector-mysql-cdc/flink-connector-mysql-cdc.iml" />
       <module fileurl="file://$PROJECT_DIR$/flink-connector-oracle-cdc/flink-connector-oracle-cdc.iml" filepath="$PROJECT_DIR$/flink-connector-oracle-cdc/flink-connector-oracle-cdc.iml" />
       <module fileurl="file://$PROJECT_DIR$/flink-connector-postgres-cdc/flink-connector-postgres-cdc.iml" filepath="$PROJECT_DIR$/flink-connector-postgres-cdc/flink-connector-postgres-cdc.iml" />
       <module fileurl="file://$PROJECT_DIR$/flink-connector-test-util/flink-connector-test-util.iml" filepath="$PROJECT_DIR$/flink-connector-test-util/flink-connector-test-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-connectors/flink-connectors.iml" filepath="$PROJECT_DIR$/flink-connectors/flink-connectors.iml" />
       <module fileurl="file://$PROJECT_DIR$/flink-format-changelog-json/flink-format-changelog-json.iml" filepath="$PROJECT_DIR$/flink-format-changelog-json/flink-format-changelog-json.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-runtime/flink-runtime_2.11.iml" filepath="$PROJECT_DIR$/flink-runtime/flink-runtime_2.11.iml" />
       <module fileurl="file://$PROJECT_DIR$/flink-sql-connector-mongodb-cdc/flink-sql-connector-mongodb-cdc.iml" filepath="$PROJECT_DIR$/flink-sql-connector-mongodb-cdc/flink-sql-connector-mongodb-cdc.iml" />
       <module fileurl="file://$PROJECT_DIR$/flink-sql-connector-mysql-cdc/flink-sql-connector-mysql-cdc.iml" filepath="$PROJECT_DIR$/flink-sql-connector-mysql-cdc/flink-sql-connector-mysql-cdc.iml" />
       <module fileurl="file://$PROJECT_DIR$/flink-sql-connector-oracle-cdc/flink-sql-connector-oracle-cdc.iml" filepath="$PROJECT_DIR$/flink-sql-connector-oracle-cdc/flink-sql-connector-oracle-cdc.iml" />
       <module fileurl="file://$PROJECT_DIR$/flink-sql-connector-postgres-cdc/flink-sql-connector-postgres-cdc.iml" filepath="$PROJECT_DIR$/flink-sql-connector-postgres-cdc/flink-sql-connector-postgres-cdc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-streaming-java/flink-streaming-java_2.11.iml" filepath="$PROJECT_DIR$/flink-streaming-java/flink-streaming-java_2.11.iml" />
     </modules>
   </component>
 </project>

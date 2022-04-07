@@ -97,7 +97,7 @@ public class MySqlSourceReader<T>
     @Override
     public void start() {
         if (getNumberOfCurrentlyAssignedSplits() == 0) {
-            context.sendSplitRequest(); //MySqlSourceReader 启动时会向 MySqlSourceEnumerator 发送请求 RequestSplitEvent 事件
+            context.sendSplitRequest();//发送请求切片  在初始化initReader()时，创建了SourceReaderContext
         }
     }
 
@@ -135,8 +135,8 @@ public class MySqlSourceReader<T>
                             mySqlSplit));
             finishedUnackedSplits.put(mySqlSplit.splitId(), mySqlSplit.asSnapshotSplit());
         }
-        reportFinishedSnapshotSplitsIfNeed();
-        context.sendSplitRequest();
+        reportFinishedSnapshotSplitsIfNeed();//发送切片完成事件
+        context.sendSplitRequest();//上一个spilt处理完成后继续发送切片请求
     }
 
     @Override
@@ -223,7 +223,7 @@ public class MySqlSourceReader<T>
         if (!finishedUnackedSplits.isEmpty()) {
             final Map<String, BinlogOffset> finishedOffsets = new HashMap<>();
             for (MySqlSnapshotSplit split : finishedUnackedSplits.values()) {
-                finishedOffsets.put(split.splitId(), split.getHighWatermark());
+                finishedOffsets.put(split.splitId(), split.getHighWatermark());//发送切片ID，及最大偏移量
             }
             FinishedSnapshotSplitsReportEvent reportEvent =
                     new FinishedSnapshotSplitsReportEvent(finishedOffsets);

@@ -88,14 +88,14 @@ public class MySqlSourceEnumerator implements SplitEnumerator<MySqlSplit, Pendin
     }
 
     @Override
-    public void handleSplitRequest(int subtaskId, @Nullable String requesterHostname) {//
+    public void handleSplitRequest(int subtaskId, @Nullable String requesterHostname) {//处理切片请求，为请求的Reader分配切片
         if (!context.registeredReaders().containsKey(subtaskId)) {
             // reader failed between sending the request and now. skip this request.
             return;
         }
-//MySqlSourceReader 启动时会向 MySqlSourceEnumerator 发送请求 RequestSplitEvent 事件，根据返回的切片范围读取区间数据。MySqlSourceEnumerator 全量读取阶段分片请求处理逻辑，最终返回一个MySqlSnapshotSplit。
+        //MySqlSourceReader 启动时会向 MySqlSourceEnumerator 发送请求 RequestSplitEvent 事件，根据返回的切片范围读取区间数据。
         readersAwaitingSplit.add(subtaskId);
-        assignSplits();
+        assignSplits();//(全量阶段MySqlSnapshotSplit、增量阶段MySqlBinlogSplit)
     }
 
     @Override
@@ -164,7 +164,7 @@ public class MySqlSourceEnumerator implements SplitEnumerator<MySqlSplit, Pendin
                 continue;
             }
 
-            Optional<MySqlSplit> split = splitAssigner.getNext();//MySqlHybridSplitAssigner的getNext()
+            Optional<MySqlSplit> split = splitAssigner.getNext();//MySqlHybridSplitAssigner.getNext()
             if (split.isPresent()) {
                 final MySqlSplit mySqlSplit = split.get();
                 context.assignSplit(mySqlSplit, nextAwaiting);

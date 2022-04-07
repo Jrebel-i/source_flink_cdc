@@ -9,10 +9,14 @@
     <file url="file://$PROJECT_DIR$/flink-connector-oracle-cdc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flink-connector-postgres-cdc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flink-connector-test-util" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-connectors" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-connectors/flink-connector-base" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flink-format-changelog-json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-runtime" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flink-sql-connector-mongodb-cdc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flink-sql-connector-mysql-cdc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flink-sql-connector-oracle-cdc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flink-sql-connector-postgres-cdc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink-streaming-java" charset="UTF-8" />
   </component>
 </project>

@@ -149,7 +149,7 @@ class ChunkSplitter {
                     doubleCompare(distributionFactor, distributionFactorLower) >= 0
                             && doubleCompare(distributionFactor, distributionFactorUpper) <= 0;
 
-            if (dataIsEvenlyDistributed) {
+            if (dataIsEvenlyDistributed) {//数据是均匀分配的
                 // the minimum dynamic chunk size is at least 1
                 final int dynamicChunkSize = Math.max((int) (distributionFactor * chunkSize), 1);
                 return splitEvenlySizedChunks( //按主键均匀划分  根据拆分列的最小值和最大值将表拆分为大小均匀的块，并以 {@link #chunkSize} 步长滚动块

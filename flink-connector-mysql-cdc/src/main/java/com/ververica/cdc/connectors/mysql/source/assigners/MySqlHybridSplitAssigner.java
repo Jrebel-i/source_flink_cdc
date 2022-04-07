@@ -98,19 +98,19 @@ public class MySqlHybridSplitAssigner implements MySqlSplitAssigner {
             if (isBinlogSplitAssigned) {
                 // no more splits for the assigner
                 return Optional.empty();
-            } else if (snapshotSplitAssigner.isFinished()) {
+            } else if (snapshotSplitAssigner.isFinished()) {//如果全量阶段分片完成
                 // we need to wait snapshot-assigner to be finished before
                 // assigning the binlog split. Otherwise, records emitted from binlog split
                 // might be out-of-order in terms of same primary key with snapshot splits.
                 isBinlogSplitAssigned = true;
-                return Optional.of(createBinlogSplit());//全量阶段分片读取完成后，noMoreSplits返回值为true, 创建 BinlogSplit
+                return Optional.of(createBinlogSplit());//增量阶段： 全量阶段分片读取完成后，noMoreSplits返回值为true, 创建 BinlogSplit
             } else {
                 // binlog split is not ready by now
                 return Optional.empty();
             }
         } else {
             // snapshot assigner still have remaining splits, assign split from it
-            return snapshotSplitAssigner.getNext(); //任务刚启动时，remainingTables不为空，noMoreSplits返回值为false，创建 SnapshotSplit。
+            return snapshotSplitAssigner.getNext(); //全量阶段： 任务刚启动时，remainingTables不为空，noMoreSplits返回值为false，创建 SnapshotSplit。
         }
     }
 
@@ -171,7 +171,7 @@ public class MySqlHybridSplitAssigner implements MySqlSplitAssigner {
                 snapshotSplitAssigner.getSplitFinishedOffsets();
         final List<FinishedSnapshotSplitInfo> finishedSnapshotSplitInfos = new ArrayList<>();
 
-        BinlogOffset minBinlogOffset = null;
+        BinlogOffset minBinlogOffset = null;//从全部已完成的全量切片中筛选最小BinlogOffset
         for (MySqlSnapshotSplit split : assignedSnapshotSplit) {
             // find the min binlog offset
             BinlogOffset binlogOffset = splitFinishedOffsets.get(split.splitId());

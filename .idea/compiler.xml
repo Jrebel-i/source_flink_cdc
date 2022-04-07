@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="flink-cdc-e2e-tests" />
+        <module name="flink-connector-base" />
         <module name="flink-connector-debezium" />
         <module name="flink-connector-mongodb-cdc" />
         <module name="flink-connector-mysql-cdc" />
@@ -14,26 +15,39 @@
         <module name="flink-connector-postgres-cdc" />
         <module name="flink-connector-test-util" />
         <module name="flink-format-changelog-json" />
+        <module name="flink-runtime_2.11" />
         <module name="flink-sql-connector-mongodb-cdc" />
         <module name="flink-sql-connector-mysql-cdc" />
         <module name="flink-sql-connector-oracle-cdc" />
         <module name="flink-sql-connector-postgres-cdc" />
+        <module name="flink-streaming-java_2.11" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="flink-cdc-connectors" target="1.8" />
       <module name="flink-cdc-e2e-tests" target="1.8" />
+      <module name="flink-connector-base" target="1.8" />
       <module name="flink-connector-debezium" target="1.8" />
       <module name="flink-connector-mongodb-cdc" target="1.8" />
       <module name="flink-connector-mysql-cdc" target="1.8" />
       <module name="flink-connector-oracle-cdc" target="1.8" />
       <module name="flink-connector-postgres-cdc" target="1.8" />
       <module name="flink-connector-test-util" target="1.8" />
+      <module name="flink-connectors" target="1.8" />
       <module name="flink-format-changelog-json" target="1.8" />
+      <module name="flink-runtime_2.11" target="1.8" />
       <module name="flink-sql-connector-mongodb-cdc" target="1.8" />
       <module name="flink-sql-connector-mysql-cdc" target="1.8" />
       <module name="flink-sql-connector-oracle-cdc" target="1.8" />
       <module name="flink-sql-connector-postgres-cdc" target="1.8" />
+      <module name="flink-streaming-java_2.11" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="flink-connector-base" options="-Xpkginfo:always" />
+      <module name="flink-runtime_2.11" options="-Xpkginfo:always" />
+      <module name="flink-streaming-java_2.11" options="-Xpkginfo:always" />
+    </option>
   </component>
 </project>

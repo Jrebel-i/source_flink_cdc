@@ -68,8 +68,8 @@ public class MySqlSplitReader implements SplitReader<SourceRecord, MySqlSplit> {
     public RecordsWithSplitIds<SourceRecord> fetch() throws IOException {
         checkSplitOrStartNext();//由DebeziumReader读取数据到事件队列,创建Reader 并读取数据
         Iterator<SourceRecord> dataIt = null;
-        try {
-            dataIt = currentReader.pollSplitRecords();//读取数据，SnapshotSplitReader和BinlogSplitReader
+        try {// data input: [low watermark event][snapshot events][high watermark event][binlog events][binlog-end event] // data output: [low watermark event][normalized events][high watermark event]
+            dataIt = currentReader.pollSplitRecords();// SnapshotSplitReader 执行pollSplitRecords 时对队列中的原始数据进行修正
         } catch (InterruptedException e) {
             LOG.warn("fetch data failed.", e);
             throw new IOException(e);
