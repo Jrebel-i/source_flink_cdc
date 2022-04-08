@@ -159,7 +159,7 @@ public class SourceCoordinator<SplitT extends SourceSplit, EnumChkT>
         LOG.info("Source coordinator for source {} closed.", operatorName);
     }
 
-    @Override
+    @Override //handleEventFromOperator方法用来接收operator发来的事件。然后做出响应
     public void handleEventFromOperator(int subtask, OperatorEvent event) {
         runInEventLoop(
                 () -> {
@@ -416,7 +416,7 @@ public class SourceCoordinator<SplitT extends SourceSplit, EnumChkT>
     }
 
     // --------------------- private methods -------------
-
+    //将创建的 MySqlSourceReader 以事件的形式传递给 SourceCoordinator 进行注册。SourceCoordinator 接收到注册事件后，将reader 地址及索引进行保存。
     private void handleReaderRegistrationEvent(ReaderRegistrationEvent event) {
         context.registerSourceReader(new ReaderInfo(event.subtaskId(), event.location()));
         enumerator.addReader(event.subtaskId());

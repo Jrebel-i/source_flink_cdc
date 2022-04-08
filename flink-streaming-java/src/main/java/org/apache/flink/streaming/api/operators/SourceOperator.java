@@ -253,7 +253,7 @@ public class SourceOperator<OUT, SplitT extends SourceSplit> extends AbstractStr
             sourceReader.addSplits(splits);//MySqlSourceReader 通过 SingleThreadFetcherManager 创建Fetcher拉取分片数据，数据以 MySqlRecords 格式写入到 elementsQueue
         }
 
-        // Register the reader to the coordinator.
+        // Register the reader to the coordinator.  通过OperatorEventGateway 和 SourceCoordinator 进行交互
         registerReader();//将创建的 MySqlSourceReader 以事件的形式传递给 SourceCoordinator 进行注册。SourceCoordinator 接收到注册事件后，将reader 地址及索引进行保存
         //MySqlSourceReader 启动时会向 MySqlSourceEnumerator 发送请求 RequestSplitEvent 事件
         // Start the reader after registration, sending messages in start is allowed.
